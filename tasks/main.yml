@@ -1,0 +1,43 @@
+---
+- name: "build essential installed"
+  sudo: yes
+  apt:
+    name: "build-essential"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+
+- include: "ruby-install.yml"
+
+- name: "ruby installed"
+  shell: "ruby-install ruby {{ ruby_version }} --src-dir {{ ruby_install_dir }}/.ruby-src --cleanup"
+  args:
+    creates: "{{ ruby_install_dir }}/.ruby-{{ ruby_version }}-installed"
+
+- name: "mark ruby"
+  file:
+    dest: "{{ ruby_install_dir }}/.ruby-{{ ruby_version }}-installed"
+    state: touch
+  changed_when: false
+
+- include: "chruby.yml"
+
+- name: "set ruby version"
+  sudo: yes
+  template:
+    src: "ruby-version.j2"
+    dest: "/.ruby-version"
+
+- name: "gem dependencies"
+  sudo: yes
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+  - "libmysqlclient-dev"
+  - "libpq-dev"
+  - "libsqlite3-dev"
+
+- include: "gems.yml"
