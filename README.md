@@ -1,6 +1,8 @@
 # Ansible Role: Ruby
 
+[![Ansible Galaxy](http://img.shields.io/badge/galaxy-novuso.ruby-000000.svg)](https://galaxy.ansible.com/list#/roles/4060)
 [![MIT License](http://img.shields.io/badge/license-MIT-003399.svg)](http://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/novuso/ansible-role-ruby.svg)](https://travis-ci.org/novuso/ansible-role-ruby)
 
 An Ansible role that manages Ruby on Ubuntu 14.04
 
