@@ -35,16 +35,12 @@
     state: touch
   changed_when: false
 
-- name: "source chruby.sh"
+- name: "chruby.sh in .bashrc"
   lineinfile:
     dest: "~/.bashrc"
     line: "source /usr/local/share/chruby/chruby.sh"
 
-- name: "source auto.sh"
+- name: "auto.sh in .bashrc"
   lineinfile:
     dest: "~/.bashrc"
     line: "source /usr/local/share/chruby/auto.sh"
-
-- name: "source .bashrc"
-  shell: ". ~/.bashrc"
-  changed_when: false
