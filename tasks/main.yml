@@ -1,16 +1,25 @@
 ---
-- name: "build essential installed"
+- name: "dependencies installed"
   sudo: yes
   apt:
-    name: "build-essential"
+    name: "{{ item }}"
     state: present
     update_cache: yes
     cache_valid_time: 3600
+  with_items:
+  - "build-essential"
+  - "zlib1g-dev"
+  - "libyaml-dev"
+  - "libssl-dev"
+  - "libgdbm-dev"
+  - "libreadline-dev"
+  - "libncurses5-dev"
+  - "libffi-dev"
 
 - include: "ruby-install.yml"
 
 - name: "ruby installed"
-  shell: "ruby-install ruby {{ ruby_version }} --src-dir {{ ruby_install_dir }}/.ruby-src --cleanup"
+  shell: "ruby-install ruby {{ ruby_version }} --src-dir {{ ruby_install_dir }}/.ruby-src --cleanup --no-install-deps"
   args:
     creates: "{{ ruby_install_dir }}/.ruby-{{ ruby_version }}-installed"
 
