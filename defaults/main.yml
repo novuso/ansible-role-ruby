@@ -10,6 +10,7 @@ ruby_install_archive_url: "https://github.com/postmodern/ruby-install/archive/v{
 ruby_chruby_archive_url: "https://github.com/postmodern/chruby/archive/v{{ ruby_chruby_version }}.tar.gz"
 ruby_install_download_tar: "{{ ruby_install_dir }}/ruby-install-{{ ruby_install_version }}.tar.gz"
 ruby_chruby_download_tar: "{{ ruby_install_dir }}/chruby-{{ ruby_chruby_version }}.tar.gz"
+ruby_mirror: "https://cache.ruby-lang.org/pub/ruby"
 # ruby_gems
 # - name: compass            #required
 #   state: present           #default
