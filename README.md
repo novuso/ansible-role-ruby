@@ -60,6 +60,10 @@ Ansible variables are listed here along with their default values:
 
     ruby_chruby_download_tar: "{{ ruby_install_dir }}/chruby-{{ ruby_chruby_version }}.tar.gz"
 
+`ruby_mirror` is the mirror URL
+
+    ruby_mirror: "https://cache.ruby-lang.org/pub/ruby"
+
 `ruby_gems` is a list of Ruby gems to manage. Each entry in the list may
 designate:
 
