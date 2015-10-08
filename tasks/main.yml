@@ -19,7 +19,7 @@
 - include: "ruby-install.yml"
 
 - name: "ruby installed"
-  shell: "ruby-install ruby {{ ruby_version }} --src-dir {{ ruby_install_dir }}/.ruby-src --cleanup --no-install-deps"
+  shell: "ruby-install -M {{ ruby_mirror }} ruby {{ ruby_version }} --src-dir {{ ruby_install_dir }}/.ruby-src --cleanup --no-install-deps"
   args:
     creates: "{{ ruby_install_dir }}/.ruby-{{ ruby_version }}-installed"
 
