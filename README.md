@@ -16,7 +16,7 @@ Ansible variables are listed here along with their default values:
 
 `ruby_version` is the default Ruby version to install.
 
-    ruby_version: "2.2.2"
+    ruby_version: "2.2.3"
 
 `ruby_install_version` is the version of
 [ruby-install](https://github.com/postmodern/ruby-install) to install.
